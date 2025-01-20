@@ -12,6 +12,11 @@ if (file_exists($maintenance = __DIR__.'/../storage/framework/maintenance.php'))
 // Register the Composer autoloader...
 require __DIR__.'/../vendor/autoload.php';
 
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS');
+header('Access-Control-Allow-Headers: Origin, Content-Type, Accept, Authorization, X-Request-With');
+header('Access-Control-Allow-Credentials: true');
+
 // Bootstrap Laravel and handle the request...
 (require_once __DIR__.'/../bootstrap/app.php')
     ->handleRequest(Request::capture());
